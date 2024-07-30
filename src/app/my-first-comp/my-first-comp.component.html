@@ -24,7 +24,7 @@
     <button type="submit">Submit</button>
   </form>
 
-  <table *ngIf="isSubmitted">
+  <!--<table *ngIf="isSubmitted">
     <thead>
     <tr>
       <th>#</th>
@@ -34,12 +34,21 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let msg of messages; let i = index"> <!-- *ngFor="let msg of messages" permet de boucler, on va afficher les objets msg contenus dans le tableau messages -->
+    <tr *ngFor="let msg of messages; let i = index"> &lt;!&ndash; *ngFor="let msg of messages" permet de boucler, on va afficher les objets msg contenus dans le tableau messages &ndash;&gt;
       <td>{{ i + 1 }}</td>
       <td>{{ msg.name }}</td>
       <td>{{ msg.email }}</td>
       <td>{{ msg.message }}</td>
     </tr>
     </tbody>
-  </table>
+  </table>-->
+
+  <div class="flex-container" *ngIf="isSubmitted">
+    <app-message-details
+    *ngFor="let msg of messages; let i = index"
+    [message]="msg"
+    [index]="i"
+    (delete)="deleteMessage($event)"
+    ></app-message-details>
+  </div>
 </div>
