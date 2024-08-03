@@ -3,12 +3,16 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyFirstCompComponent } from './my-first-comp/my-first-comp.component';
+import { MyFirstCompComponent } from './components/my-first-comp/my-first-comp.component';
 import {FormsModule} from "@angular/forms";
-import { MessageDetailsComponent } from './message-details/message-details.component';
+import { MessageDetailsComponent } from './components/message-details/message-details.component';
 import {MyFirstService} from "./services/my-first.service";
-import { MenuComponent } from './menu/menu.component';
-import { AboutComponent } from './about/about.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { AboutComponent } from './components/about/about.component';
+import {provideHttpClient} from "@angular/common/http";
+import { ProductsComponent } from './components/products/products.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +20,10 @@ import { AboutComponent } from './about/about.component';
     MyFirstCompComponent,
     MessageDetailsComponent,
     MenuComponent,
-    AboutComponent
+    AboutComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    NewProductComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,8 @@ import { AboutComponent } from './about/about.component';
   ],
   providers: [
     provideClientHydration(),
-    MyFirstService
+    MyFirstService,
+    provideHttpClient()
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MyFirstService} from "../services/my-first.service";
+import { MyFirstService } from '../../services/my-first.service';
 
 @Component({
   selector: 'app-my-first-comp',
